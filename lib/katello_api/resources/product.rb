@@ -16,13 +16,12 @@ module KatelloApi
 
       # @param [Hash] params a hash of params to be passed to the service
       # @option params [String] id  product numeric identifier 
-      # @option params [Hash, nil] product
-      #   allowed keys are:
-      #   * gpg_key_id [String, nil]  identifier of the gpg key 
-      #   * provider_id [String]  provider the product belongs to 
-      #   * description [String, nil]  product description 
-      #   * label [String, nil]
-      #   * name [String]
+      # @option params [String] gpg_key_id  identifier of the gpg key 
+      # @option params [String] provider_id  provider the product belongs to 
+      # @option params [String] sync_plan_id  plan numeric identifier 
+      # @option params [String] description  product description 
+      # @option params [String] label
+      # @option params [String] name
       #
       # @param [Hash] headers additional http headers
       # @return [Array] First item: parsed data; second item: raw body
@@ -96,13 +95,12 @@ module KatelloApi
       end
 
       # @param [Hash] params a hash of params to be passed to the service
-      # @option params [Hash, nil] product
-      #   allowed keys are:
-      #   * gpg_key_id [String, nil]  identifier of the gpg key 
-      #   * provider_id [String]  provider the product belongs to 
-      #   * description [String, nil]  product description 
-      #   * label [String, nil]
-      #   * name [String]
+      # @option params [String] gpg_key_id  identifier of the gpg key 
+      # @option params [String] provider_id  provider the product belongs to 
+      # @option params [String] sync_plan_id  plan numeric identifier 
+      # @option params [String] description  product description 
+      # @option params [String] label
+      # @option params [String] name
       #
       # @param [Hash] headers additional http headers
       # @return [Array] First item: parsed data; second item: raw body
