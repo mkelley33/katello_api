@@ -7,38 +7,6 @@ module KatelloApi
 
       # @param [Hash] params a hash of params to be passed to the service
       # @option params [String] organization_id  organization identifier 
-      # @option params [String] library  set true if you want to see only library environment 
-      # @option params [String] name  filter only environments with this identifier 
-      #
-      # @param [Hash] headers additional http headers
-      # @return [Array] First item: parsed data; second item: raw body
-      def index(params = {}, headers = {})
-        perform_call(__method__, params, headers)
-      end
-
-      # @param [Hash] params a hash of params to be passed to the service
-      # @option params [String] organization_id  organization identifier 
-      # @option params [String] library  set true if you want to see only library environment 
-      # @option params [String] name  filter only environments with this identifier 
-      #
-      # @param [Hash] headers additional http headers
-      # @return [Array] First item: parsed data; second item: raw body
-      def rhsm_index(params = {}, headers = {})
-        perform_call(__method__, params, headers)
-      end
-
-      # @param [Hash] params a hash of params to be passed to the service
-      # @option params [String] id  environment identifier 
-      # @option params [String] organization_id  organization identifier 
-      #
-      # @param [Hash] headers additional http headers
-      # @return [Array] First item: parsed data; second item: raw body
-      def show(params = {}, headers = {})
-        perform_call(__method__, params, headers)
-      end
-
-      # @param [Hash] params a hash of params to be passed to the service
-      # @option params [String] organization_id  organization identifier 
       # @option params [Hash] environment
       #   allowed keys are:
       #   * description [String, nil]
@@ -52,12 +20,10 @@ module KatelloApi
       end
 
       # @param [Hash] params a hash of params to be passed to the service
-      # @option params [Object] id Part of +/api/environments/:id+ path
-      # @option params [Object] organization_id Part of +/api/organizations/:organization_id/environments/:id+ path
-      # @option params [Hash] environment
-      #   allowed keys are:
-      #   * description [String, nil]
-      #   * name [String]  name of the environment (identifier) 
+      # @option params [String] id  environment numeric identifier 
+      # @option params [String] organization_id  organization identifier 
+      # @option params [String] description  environment description 
+      # @option params [String] name  environment name 
       #
       # @param [Hash] headers additional http headers
       # @return [Array] First item: parsed data; second item: raw body
@@ -66,7 +32,7 @@ module KatelloApi
       end
 
       # @param [Hash] params a hash of params to be passed to the service
-      # @option params [String] id  environment identifier 
+      # @option params [String] id  environment numeric identifier 
       # @option params [String] organization_id  organization identifier 
       #
       # @param [Hash] headers additional http headers
@@ -76,32 +42,20 @@ module KatelloApi
       end
 
       # @param [Hash] params a hash of params to be passed to the service
-      # @option params [String] id  environment identifier 
-      # @option params [String] content_view_id  content view identifier 
-      # @option params [String] organization_id  organization identifier 
-      # @option params [String] include_disabled  set to true if you want to see also disabled repositories 
-      #
-      # @param [Hash] headers additional http headers
-      # @return [Array] First item: parsed data; second item: raw body
-      def repositories(params = {}, headers = {})
-        perform_call(__method__, params, headers)
-      end
-
-      # @param [Hash] params a hash of params to be passed to the service
-      # @option params [String] id  environment identifier 
-      #
-      # @param [Hash] headers additional http headers
-      # @return [Array] First item: parsed data; second item: raw body
-      def releases(params = {}, headers = {})
-        perform_call(__method__, params, headers)
-      end
-
-      # @param [Hash] params a hash of params to be passed to the service
       # @option params [String] organization_id  organization identifier 
       #
       # @param [Hash] headers additional http headers
       # @return [Array] First item: parsed data; second item: raw body
       def systems_registerable(params = {}, headers = {})
+        perform_call(__method__, params, headers)
+      end
+
+      # @param [Hash] params a hash of params to be passed to the service
+      # @option params [Object] organization_id Part of +/api/organizations/:organization_id/environments/paths+ path
+      #
+      # @param [Hash] headers additional http headers
+      # @return [Array] First item: parsed data; second item: raw body
+      def paths(params = {}, headers = {})
         perform_call(__method__, params, headers)
       end
 

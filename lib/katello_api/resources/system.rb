@@ -153,7 +153,7 @@ module KatelloApi
       #
       # @param [Hash] headers additional http headers
       # @return [Array] First item: parsed data; second item: raw body
-      def refresh_subscriptions(params = {}, headers = {})
+      def errata(params = {}, headers = {})
         perform_call(__method__, params, headers)
       end
 

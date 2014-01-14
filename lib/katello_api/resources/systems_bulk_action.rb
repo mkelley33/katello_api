@@ -38,9 +38,30 @@ module KatelloApi
       end
 
       # @param [Hash] params a hash of params to be passed to the service
+      # @option params [Hash] exclude
+      #   allowed keys are:
+      #   * ids [Array, nil]  list of system ids to exclude and not run an action on 
+      # @option params [Hash] include
+      #   allowed keys are:
+      #   * ids [Array, nil]  list of system ids to perform an action on 
+      #   * search [String, nil]  search string for systems to perform an action on 
+      #
+      # @param [Hash] headers additional http headers
+      # @return [Array] First item: parsed data; second item: raw body
+      def applicable_errata(params = {}, headers = {})
+        perform_call(__method__, params, headers)
+      end
+
+      # @param [Hash] params a hash of params to be passed to the service
       # @option params [Array] content  list of content (e.g. package names, package group names or errata ids) 
       # @option params [String] content_type  the type of content. the following types are supported: ‘package’, ‘package_group’ and ‘errata’. 
-      # @option params [Array] ids  list of system ids 
+      # @option params [Hash] exclude
+      #   allowed keys are:
+      #   * ids [Array, nil]  list of system ids to exclude and not run an action on 
+      # @option params [Hash] include
+      #   allowed keys are:
+      #   * ids [Array, nil]  list of system ids to perform an action on 
+      #   * search [String, nil]  search string for systems to perform an action on 
       #
       # @param [Hash] headers additional http headers
       # @return [Array] First item: parsed data; second item: raw body
