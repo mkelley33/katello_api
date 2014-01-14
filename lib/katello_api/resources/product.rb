@@ -6,16 +6,18 @@ module KatelloApi
       end
 
       # @param [Hash] params a hash of params to be passed to the service
-      # @option params [String] id  product numeric identifier 
+      # @option params [Object] environment_id Part of +/api/environments/:environment_id/products+ path
+      # @option params [String] organization_id  organization identifier 
+      # @option params [String] include_marketing  include marketing products in results 
+      # @option params [String] name  product identifier 
       #
       # @param [Hash] headers additional http headers
       # @return [Array] First item: parsed data; second item: raw body
-      def show(params = {}, headers = {})
+      def index(params = {}, headers = {})
         perform_call(__method__, params, headers)
       end
 
       # @param [Hash] params a hash of params to be passed to the service
-      # @option params [String] id  product numeric identifier 
       # @option params [String] gpg_key_id  identifier of the gpg key 
       # @option params [String] provider_id  provider the product belongs to 
       # @option params [String] sync_plan_id  plan numeric identifier 
@@ -25,32 +27,38 @@ module KatelloApi
       #
       # @param [Hash] headers additional http headers
       # @return [Array] First item: parsed data; second item: raw body
+      def create(params = {}, headers = {})
+        perform_call(__method__, params, headers)
+      end
+
+      # @param [Hash] params a hash of params to be passed to the service
+      # @option params [String] id  product numeric identifier 
+      # @option params [String] organization_id  organization identifier 
+      #
+      # @param [Hash] headers additional http headers
+      # @return [Array] First item: parsed data; second item: raw body
+      def show(params = {}, headers = {})
+        perform_call(__method__, params, headers)
+      end
+
+      # @param [Hash] params a hash of params to be passed to the service
+      # @option params [String] id  product numeric identifier 
+      # @option params [String] organization_id  organization identifier 
+      # @option params [Hash] product
+      #   allowed keys are:
+      #   * description [String, nil]  product description 
+      #   * gpg_key_name [String, nil]  identifier of the gpg key 
+      #   * recursive [String]  set to true to recursive update gpg key 
+      #
+      # @param [Hash] headers additional http headers
+      # @return [Array] First item: parsed data; second item: raw body
       def update(params = {}, headers = {})
         perform_call(__method__, params, headers)
       end
 
       # @param [Hash] params a hash of params to be passed to the service
-      # @option params [String] organization_id  filter products by organization name or label 
-      # @option params [String] subscription_id  filter products by subscription identifier 
-      # @option params [String] enabled  filter enabled products 
-      # @option params [String] name  filter products by name 
-      # @option params [String] order  sort field and order, eg. ‘name desc’ 
-      # @option params [String] page  page number, starting at 1 
-      # @option params [String] per_page  number of results per page to return 
-      # @option params [String] search  search string 
-      # @option params [Hash] sort  hash version of ‘order’ param 
-      #   allowed keys are:
-      #   * by [String]  field to sort the results on 
-      #   * order [String]  how to order the sorted results (e.g. asc for ascending) 
-      #
-      # @param [Hash] headers additional http headers
-      # @return [Array] First item: parsed data; second item: raw body
-      def index(params = {}, headers = {})
-        perform_call(__method__, params, headers)
-      end
-
-      # @param [Hash] params a hash of params to be passed to the service
-      # @option params [String] id  candlepin product numeric identifier 
+      # @option params [String] id  product numeric identifier 
+      # @option params [String] organization_id  organization identifier 
       #
       # @param [Hash] headers additional http headers
       # @return [Array] First item: parsed data; second item: raw body
@@ -91,20 +99,6 @@ module KatelloApi
       # @param [Hash] headers additional http headers
       # @return [Array] First item: parsed data; second item: raw body
       def remove_sync_plan(params = {}, headers = {})
-        perform_call(__method__, params, headers)
-      end
-
-      # @param [Hash] params a hash of params to be passed to the service
-      # @option params [String] gpg_key_id  identifier of the gpg key 
-      # @option params [String] provider_id  provider the product belongs to 
-      # @option params [String] sync_plan_id  plan numeric identifier 
-      # @option params [String] description  product description 
-      # @option params [String] label
-      # @option params [String] name
-      #
-      # @param [Hash] headers additional http headers
-      # @return [Array] First item: parsed data; second item: raw body
-      def create(params = {}, headers = {})
         perform_call(__method__, params, headers)
       end
 
